@@ -82,6 +82,34 @@ body {
     justify-content: center;
 }
 
+.header {
+  
+}
+
+.title {
+
+}
+
+.main {
+
+}
+
+.settings {
+
+}
+
+.start-button {
+
+}
+
+.pause-button {
+  
+}
+
+.reset-button {
+
+}
+
 .grid {
     display: grid;
     box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
