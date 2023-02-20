@@ -76,14 +76,15 @@ select {
 /* REGULAR CODE STARTS HERE */
 
 body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
@@ -91,11 +92,14 @@ body {
 }
 
 .main {
-
+  display: flex;
+  height: 100vh;
 }
 
 .settings {
-
+  display: flex;
+  flex-direction: column;
+  flex: .5;
 }
 
 .start-button {
@@ -121,3 +125,26 @@ body {
   user-select: none;
 }
 
+.face {
+
+}
+
+.red-body {
+
+}
+
+.white-body {
+
+}
+
+.yellow-body {
+
+}
+
+.black-body {
+
+}
+
+.blue-body {
+  
+}

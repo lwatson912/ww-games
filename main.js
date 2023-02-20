@@ -24,6 +24,7 @@ function wally() {
     console.log(num)
     const head = document.querySelector('#grid :nth-child(' + num + ')')
     head.style.backgroundColor = `#F6DADA`
+    head.addEventListener("click", pause)
     const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
     bodyOne.style.backgroundColor = `#FF0000`
     const bodyTwo = document.querySelector('#grid :nth-child(' + (num + 128) + ')')
@@ -54,45 +55,45 @@ function timeToString(time) {
     let formattedMS = ms.toString().padStart(2, "0");
   
     return `${formattedMM}:${formattedSS}:${formattedMS}`;
-  }
+}
   
-  // Declare variables to use in our functions below
+// Declare variables to use in our functions below
+
+let startTime;
+let elapsedTime = 0;
+let timerInterval;
+
+// Create function to modify innerHTML
+
+function print(txt) {
+  document.getElementById("display").innerHTML = txt;
+}
+
+// Create "start", "pause" and "reset" functions
+
+function start() {
+  startTime = Date.now() - elapsedTime;
+  timerInterval = setInterval(function printTime() {
+    elapsedTime = Date.now() - startTime;
+    print(timeToString(elapsedTime));
+  }, 10);
+  showButton("PAUSE");
+}
   
-  let startTime;
-  let elapsedTime = 0;
-  let timerInterval;
-  
-  // Create function to modify innerHTML
-  
-  function print(txt) {
-    document.getElementById("display").innerHTML = txt;
-  }
-  
-  // Create "start", "pause" and "reset" functions
-  
-  function start() {
-    startTime = Date.now() - elapsedTime;
-    timerInterval = setInterval(function printTime() {
-      elapsedTime = Date.now() - startTime;
-      print(timeToString(elapsedTime));
-    }, 10);
-    showButton("PAUSE");
-  }
-  
-  function pause() {
-    clearInterval(timerInterval);
-    // showButton("PLAY");
-  }
-  
-  function reset() {
-    clearInterval(timerInterval);
-    print("00:00:00");
-    elapsedTime = 0;
-    // showButton("PLAY");
-  }
-  
-  // Create function to display buttons
-  
+function pause() {
+  clearInterval(timerInterval);
+  // showButton("PLAY");
+}
+
+function reset() {
+  clearInterval(timerInterval);
+  print("00:00:00");
+  elapsedTime = 0;
+  // showButton("PLAY");
+}
+
+// Create function to display buttons
+
 //   function showButton(buttonKey) {
 //     const buttonToShow = buttonKey === "PLAY" ? playButton : pauseButton;
 //     const buttonToHide = buttonKey === "PLAY" ? pauseButton : playButton;
@@ -101,13 +102,13 @@ function timeToString(time) {
 //   }
   // Create event listeners
   
-  let playButton = document.getElementById("start");
-  let pauseButton = document.getElementById("pause");
-  let resetButton = document.getElementById("resetButton");
-  
-  playButton.addEventListener("click", start);
-  pauseButton.addEventListener("click", pause);
-  resetButton.addEventListener("click", reset);
+let playButton = document.getElementById("start");
+let pauseButton = document.getElementById("pause");
+let resetButton = document.getElementById("resetButton");
+
+playButton.addEventListener("click", start);
+pauseButton.addEventListener("click", pause);
+resetButton.addEventListener("click", reset);
 
 window.onload = () => {
     setupGrid(64)
