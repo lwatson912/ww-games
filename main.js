@@ -14,23 +14,26 @@ function setupGrid(size) {
         const randomB = Math.floor(Math.random() * 256)
         gridElement.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
         grid.appendChild(gridElement)
-    }    
+    }
 }
+
+// Make sure characters dont overlap
+
+let wallyNum = Math.floor(Math.random() * 3904)
 
 // Create the characters to find 
 
-function wally() {
-    num = Math.floor(Math.random() * 3904)
-    console.log(num)
-    const head = document.querySelector('#grid :nth-child(' + num + ')')
-    head.style.backgroundColor = `#F6DADA`
-    head.addEventListener("click", pause)
-    const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
+function wally(wallyNum) {
+    console.log(wallyNum)
+    const wallyHead = document.querySelector('#grid :nth-child(' + wallyNum + ')')
+    wallyHead.style.backgroundColor = `#F6DADA`
+    const bodyOne = document.querySelector('#grid :nth-child(' + (wallyNum + 64) + ')')
     bodyOne.style.backgroundColor = `#FF0000`
-    const bodyTwo = document.querySelector('#grid :nth-child(' + (num + 128) + ')')
+    const bodyTwo = document.querySelector('#grid :nth-child(' + (wallyNum + 128) + ')')
     bodyTwo.style.backgroundColor = `#FFFFFF`
-    const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
+    const bodyThree = document.querySelector('#grid :nth-child(' + (wallyNum + 192) + ')')
     bodyThree.style.backgroundColor = `#FF0000`
+    wallyHead.addEventListener("click", blank(wallyHead))
 }
 
 function odlaw() {
@@ -38,13 +41,18 @@ function odlaw() {
     console.log(num)
     const head = document.querySelector('#grid :nth-child(' + num + ')')
     head.style.backgroundColor = `#F6DADA`
-    head.addEventListener("click", pause)
+    head.addEventListener("click", blankOd)
     const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
     bodyOne.style.backgroundColor = `#000000`
     const bodyTwo = document.querySelector('#grid :nth-child(' + (num + 128) + ')')
     bodyTwo.style.backgroundColor = `#FFFF00`
     const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
     bodyThree.style.backgroundColor = `#000000`
+}
+
+function blankOd() {
+  const bodOdlaw = document.querySelectorAll('.bod-odlaw')
+  bodOdlaw.style.opacity = `0.25`
 }
 
 function wizard() {
@@ -60,6 +68,8 @@ function wizard() {
     const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
     bodyThree.style.backgroundColor = `#FF0000`
 }
+
+
 
 // Configure the stopwatch
 
@@ -120,6 +130,13 @@ function reset() {
   // showButton("PLAY");
 }
 
+//Create function to blur out found characters
+
+function blank(head) {
+  // const bodWally = document.querySelectorAll('.bod-wally')
+  head.addEventListener("click", console.log('found'))
+}
+
 // Create function to display buttons
 
 //   function showButton(buttonKey) {
@@ -134,13 +151,13 @@ let playButton = document.getElementById("start");
 let pauseButton = document.getElementById("pause");
 let resetButton = document.getElementById("resetButton");
 
-playButton.addEventListener("click", start);
+playButton.addEventListener("click", odlaw);
 pauseButton.addEventListener("click", pause);
 resetButton.addEventListener("click", reset);
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
     setupGrid(64)
-    wally()
-    wizard()
-    odlaw()
-}
+    // wally(wallyNum)
+    // wizard()
+    // odlaw()
+})
