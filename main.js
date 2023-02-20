@@ -1,5 +1,5 @@
 const grid = document.getElementById('grid')
-
+// const bodWally = document.querySelectorAll('bod-wally')
 // Set up the grid
 
 function setupGrid(size) {
@@ -24,6 +24,10 @@ function setupGrid(size) {
 function wally() {
   num = Math.floor(Math.random() * 3904)
   console.log(num)
+  const bodWally = document.getElementById('a')
+  const bodWallyb = document.getElementById('b')
+  const bodWallyc = document.getElementById('c')
+  const bodWallyd = document.getElementById('d')
   const head = document.querySelector('#grid :nth-child(' + num + ')')
   head.style.backgroundColor = `#F6DADA`
   const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
@@ -32,6 +36,12 @@ function wally() {
   bodyTwo.style.backgroundColor = `#FFFFFF`
   const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
   bodyThree.style.backgroundColor = `#FF0000`
+  head.addEventListener('click', e => {
+    bodWally.classList.add("opaque")
+    bodWallyb.classList.add("opaque")
+    bodWallyc.classList.add("opaque")
+    bodWallyd.classList.add("opaque")
+  }) 
 }
 
 function odlaw() {
