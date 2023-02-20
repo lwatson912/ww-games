@@ -33,6 +33,34 @@ function wally() {
     bodyThree.style.backgroundColor = `#FF0000`
 }
 
+function odlaw() {
+    num = Math.floor(Math.random() * 3904)
+    console.log(num)
+    const head = document.querySelector('#grid :nth-child(' + num + ')')
+    head.style.backgroundColor = `#F6DADA`
+    head.addEventListener("click", pause)
+    const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
+    bodyOne.style.backgroundColor = `#000000`
+    const bodyTwo = document.querySelector('#grid :nth-child(' + (num + 128) + ')')
+    bodyTwo.style.backgroundColor = `#FFFF00`
+    const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
+    bodyThree.style.backgroundColor = `#000000`
+}
+
+function wizard() {
+    num = Math.floor(Math.random() * 3904)
+    console.log(num)
+    const head = document.querySelector('#grid :nth-child(' + num + ')')
+    head.style.backgroundColor = `#0183dd`
+    head.addEventListener("click", pause)
+    const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
+    bodyOne.style.backgroundColor = `#FF0000`
+    const bodyTwo = document.querySelector('#grid :nth-child(' + (num + 128) + ')')
+    bodyTwo.style.backgroundColor = `#FF0000`
+    const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
+    bodyThree.style.backgroundColor = `#FF0000`
+}
+
 // Configure the stopwatch
 
 // Convert time to a format of hours, minutes, seconds, and milliseconds
@@ -77,7 +105,7 @@ function start() {
     elapsedTime = Date.now() - startTime;
     print(timeToString(elapsedTime));
   }, 10);
-  showButton("PAUSE");
+  // showButton("PAUSE");
 }
   
 function pause() {
@@ -113,4 +141,6 @@ resetButton.addEventListener("click", reset);
 window.onload = () => {
     setupGrid(64)
     wally()
+    wizard()
+    odlaw()
 }
