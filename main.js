@@ -123,11 +123,6 @@ function reset() {
 
 //Create function to blur out found characters
 
-function blank(head) {
-  // const bodWally = document.querySelectorAll('.bod-wally')
-  head.addEventListener("click", console.log('found'))
-}
-
 // Create function to display buttons
 
 //   function showButton(buttonKey) {
