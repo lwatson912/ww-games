@@ -24,10 +24,7 @@ function setupGrid(size) {
 function wally() {
   num = Math.floor(Math.random() * 3904)
   console.log(num)
-  const bodWally = document.getElementById('a')
-  const bodWallyb = document.getElementById('b')
-  const bodWallyc = document.getElementById('c')
-  const bodWallyd = document.getElementById('d')
+  const bodWally = document.getElementById('wally')
   const head = document.querySelector('#grid :nth-child(' + num + ')')
   head.style.backgroundColor = `#F6DADA`
   const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
@@ -37,16 +34,14 @@ function wally() {
   const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
   bodyThree.style.backgroundColor = `#FF0000`
   head.addEventListener('click', e => {
-    bodWally.classList.add("opaque")
-    bodWallyb.classList.add("opaque")
-    bodWallyc.classList.add("opaque")
-    bodWallyd.classList.add("opaque")
+  bodWally.classList.add("opaque")
   }) 
 }
 
 function odlaw() {
     num = Math.floor(Math.random() * 3904)
     console.log(num)
+    const bodOdlaw = document.getElementById('odlaw')
     const head = document.querySelector('#grid :nth-child(' + num + ')')
     head.style.backgroundColor = `#F6DADA`
     const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
@@ -55,11 +50,15 @@ function odlaw() {
     bodyTwo.style.backgroundColor = `#FFFF00`
     const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
     bodyThree.style.backgroundColor = `#000000`
+    head.addEventListener('click', e => {
+    bodOdlaw.classList.add("opaque")
+    }) 
 }
 
 function wizard() {
     num = Math.floor(Math.random() * 3904)
     console.log(num)
+    const bodWizard = document.getElementById('wizard')
     const head = document.querySelector('#grid :nth-child(' + num + ')')
     head.style.backgroundColor = `#0183dd`
     const bodyOne = document.querySelector('#grid :nth-child(' + (num + 64) + ')')
@@ -68,6 +67,9 @@ function wizard() {
     bodyTwo.style.backgroundColor = `#FF0000`
     const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
     bodyThree.style.backgroundColor = `#FF0000`
+    head.addEventListener('click', e => {
+    bodWizard.classList.add("opaque")
+    }) 
 }
 
 
