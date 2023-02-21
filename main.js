@@ -1,4 +1,9 @@
 const grid = document.getElementById('grid')
+let wallyFound = 0
+let wizardFound = 0
+let odlawFound = 0
+let gameOn = 0
+
 // Set up the grid
 
 function setupGrid(size) {
@@ -20,6 +25,11 @@ function setupGrid(size) {
 
 // Create the characters to find 
 
+function wallyTrue() {
+  wallyFound = 1
+  console.log(wallyFound)
+}
+
 function wally() {
   num = Math.floor(Math.random() * 3904)
   console.log(num)
@@ -33,8 +43,21 @@ function wally() {
   const bodyThree = document.querySelector('#grid :nth-child(' + (num + 192) + ')')
   bodyThree.style.backgroundColor = `#FF0000`
   head.addEventListener('click', e => {
-  bodWally.classList.add("opaque")
-  }) 
+    bodWally.classList.add("opaque")
+  })
+  head.addEventListener('click', e => {
+    wallyTrue()
+  })
+  head.addEventListener('click', e => {
+    if (wallyFound != 0 && wizardFound != 0 && odlawFound != 0) {
+      pause()
+    }
+  })
+}
+
+function odlawTrue() {
+  odlawFound = 1
+  console.log(odlawFound)
 }
 
 function odlaw() {
@@ -52,6 +75,20 @@ function odlaw() {
     head.addEventListener('click', e => {
     bodOdlaw.classList.add("opaque")
     }) 
+    head.addEventListener('click', e => {
+      odlawTrue()
+    }) 
+    head.addEventListener('click', e => {
+      if (wallyFound != 0 && wizardFound != 0 && odlawFound != 0) {
+        // alert('found')
+        pause()
+      }
+    })
+}
+
+function wizardTrue() {
+  wizardFound = 1
+  console.log(wizardFound)
 }
 
 function wizard() {
@@ -68,8 +105,15 @@ function wizard() {
     bodyThree.style.backgroundColor = `#FF0000`
     head.addEventListener('click', e => {
     bodWizard.classList.add("opaque")
-    
+    })
+    head.addEventListener('click', e => {
+      wizardTrue()
     }) 
+    head.addEventListener('click', e => {
+      if (wallyFound != 0 && wizardFound != 0 && odlawFound != 0) {
+        pause()
+      }
+    })
 }
 
 
@@ -118,6 +162,10 @@ function start() {
     elapsedTime = Date.now() - startTime;
     print(timeToString(elapsedTime));
   }, 10);
+  setupGrid(64)
+  wally()
+  wizard()
+  odlaw()
   // showButton("PAUSE");
 }
   
@@ -132,8 +180,6 @@ function reset() {
   elapsedTime = 0;
   // showButton("PLAY");
 }
-
-//Create function to blur out found characters
 
 // Create function to display buttons
 
@@ -154,13 +200,11 @@ pauseButton.addEventListener("click", pause);
 resetButton.addEventListener("click", reset);
 
 document.addEventListener("DOMContentLoaded", () => {
-    setupGrid(64)
-    wally()
-    wizard()
-    odlaw()
+    // setupGrid(64)
+    // wally()
+    // wizard()
+    // odlaw()
 })
 
-let wallyFound = false
-let wizardFound = false
-let odlawFound = false
+// game function - put it all together
 
