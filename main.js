@@ -1,5 +1,4 @@
 const grid = document.getElementById('grid')
-// const bodWally = document.querySelectorAll('bod-wally')
 // Set up the grid
 
 function setupGrid(size) {
@@ -69,6 +68,7 @@ function wizard() {
     bodyThree.style.backgroundColor = `#FF0000`
     head.addEventListener('click', e => {
     bodWizard.classList.add("opaque")
+    
     }) 
 }
 
@@ -159,3 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
     wizard()
     odlaw()
 })
+
+let wallyFound = false
+let wizardFound = false
+let odlawFound = false
+
