@@ -2,7 +2,6 @@ const grid = document.getElementById('grid')
 let wallyFound = 0
 let wizardFound = 0
 let odlawFound = 0
-let gameOn = 0
 
 // Set up the grid
 
@@ -200,11 +199,8 @@ pauseButton.addEventListener("click", pause);
 resetButton.addEventListener("click", reset);
 
 document.addEventListener("DOMContentLoaded", () => {
-    // setupGrid(64)
-    // wally()
-    // wizard()
-    // odlaw()
+
 })
 
-// game function - put it all together
+
 
