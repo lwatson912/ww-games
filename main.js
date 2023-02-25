@@ -43,13 +43,18 @@ function wally() {
   bodyThree.style.backgroundColor = `#FF0000`
   head.addEventListener('click', e => {
     bodWally.classList.add("opaque")
-  })
+  }, {once : true})
   head.addEventListener('click', e => {
     wallyTrue()
-  })
+  }, {once : true})
   head.addEventListener('click', e => {
     if (wallyFound != 0 && wizardFound != 0 && odlawFound != 0) {
       pause()
+      let score = document.getElementById('display')
+      console.log(score.innerHTML)
+      let highScore = document.getElementById('highScore')
+      highScore.innerHTML = "Your last score was " + score.innerHTML
+
     }
   })
 }
@@ -73,14 +78,17 @@ function odlaw() {
     bodyThree.style.backgroundColor = `#000000`
     head.addEventListener('click', e => {
     bodOdlaw.classList.add("opaque")
-    }) 
+    }, {once : true}) 
     head.addEventListener('click', e => {
       odlawTrue()
-    }) 
+    }, {once : true}) 
     head.addEventListener('click', e => {
       if (wallyFound != 0 && wizardFound != 0 && odlawFound != 0) {
-        // alert('found')
         pause()
+        let score = document.getElementById('display')
+        console.log(score.innerHTML)
+        let highScore = document.getElementById('highScore')
+        highScore.innerHTML = "Your last score was " + score.innerHTML
       }
     })
 }
@@ -104,13 +112,20 @@ function wizard() {
     bodyThree.style.backgroundColor = `#FF0000`
     head.addEventListener('click', e => {
     bodWizard.classList.add("opaque")
-    })
+    }, {once : true})
     head.addEventListener('click', e => {
       wizardTrue()
-    }) 
+    }, {once : true}) 
     head.addEventListener('click', e => {
       if (wallyFound != 0 && wizardFound != 0 && odlawFound != 0) {
         pause()
+        let score = document.getElementById('display')
+        let highScore = document.getElementById('highScore')
+        highScore.innerHTML = "Your last score was " + score.innerHTML
+        if (score > highScore){
+          highScore.innerHTML = "Your last score was " + score.innerHTML
+        }
+        reset()
       }
     })
 }
@@ -177,6 +192,7 @@ function reset() {
   clearInterval(timerInterval);
   print("00:00:00");
   elapsedTime = 0;
+  location.reload()
   // showButton("PLAY");
 }
 
@@ -196,10 +212,39 @@ let resetButton = document.getElementById("resetButton");
 
 playButton.addEventListener("click", start);
 // pauseButton.addEventListener("click", pause);
-// resetButton.addEventListener("click", reset);
+resetButton.addEventListener("click", reset);
+
+// This is for the pop up box
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+function modals() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-
+  modals()
 })
 
 

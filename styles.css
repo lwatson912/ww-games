@@ -35,6 +35,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: system-ui, sans-serif;
 }
 
 /* A elements that don't have a class get default styles */
@@ -79,28 +80,35 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.header {
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.title {
-
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  padding-top: 3rem;
 }
 
 .main {
   display: flex;
   height: 100vh;
+  max-width: 800px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .settings {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   flex: .5;
+  padding-right: 2rem;
 }
 
 .start-button {
@@ -108,7 +116,7 @@ body {
 }
 
 button {
-  --c:  #229091; /* the color*/
+  --c:  #91c3ce; /* the color*/
   
   box-shadow: 0 0 0 .1em inset var(--c); 
   --_g: linear-gradient(var(--c) 0 0) no-repeat;
@@ -121,30 +129,35 @@ button {
   outline-offset: .1em;
   transition: background-size .4s, background-position 0s .4s;
 }
+
+#resetButton {
+  --c: #ac96ce;
+}
+
 button:hover {
   --_p: 100%;
   transition: background-position .4s, background-size 0s;
 }
+
 button:active {
   box-shadow: 0 0 9e9q inset #0009; 
   background-color: var(--c);
   color: #fff;
 }
 
-
-
 body {
-  height: 100vh;
+  /* height: 100vh;
   margin: 0;
   display: grid;
   place-content: center;
   grid-auto-flow: column;
-  gap: 40px;
-  background: #F2DCA2;
+  gap: 40px; */
+  background: #fac670;
 }
+
 button {
   font-family: system-ui, sans-serif;
-  font-size: 3.5rem;
+  font-size: 2rem;
   cursor: pointer;
   padding: .1em .6em;
   font-weight: bold;  
@@ -162,8 +175,8 @@ button {
 .grid {
     display: grid;
     box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
-    height: 500px;
-    width: 500px;
+    height: 550px;
+    width: 550px;
 }
 
 .grid-element {
@@ -235,3 +248,62 @@ button {
 .blue-body {
   background-color: #0183dd;
 }
+
+.time {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* colour palette */
+/* 
+#f5e1be light orange
+#dccaaa darker light orange
+#fac670 mid orange
+#e0b164 darker mid orange
+#f37925 dark orange
+#da6c21 darker dark orange
+#f5e1be purple
+#ac96ce darker purple
+#91c3ce blue
+#82afb9 darker blue
+#0d0d0d black
+
+*/
