@@ -195,8 +195,8 @@ let pauseButton = document.getElementById("pause");
 let resetButton = document.getElementById("resetButton");
 
 playButton.addEventListener("click", start);
-pauseButton.addEventListener("click", pause);
-resetButton.addEventListener("click", reset);
+// pauseButton.addEventListener("click", pause);
+// resetButton.addEventListener("click", reset);
 
 document.addEventListener("DOMContentLoaded", () => {
 
