@@ -125,7 +125,7 @@ function wizard() {
         if (score > highScore){
           highScore.innerHTML = "Your last score was " + score.innerHTML
         }
-        reset()
+        
       }
     })
 }
