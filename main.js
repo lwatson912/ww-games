@@ -2,6 +2,7 @@ const grid = document.getElementById('grid')
 let wallyFound = 0
 let wizardFound = 0
 let odlawFound = 0
+localStorage.setItem("Score", "First Try")
 
 // Set up the grid
 
@@ -122,8 +123,10 @@ function wizard() {
         let score = document.getElementById('display')
         let highScore = document.getElementById('highScore')
         highScore.innerHTML = "Your last score was " + score.innerHTML
+        localStorage.setItem("Score", score.innerHTML)
         if (score > highScore){
           highScore.innerHTML = "Your last score was " + score.innerHTML
+          localStorage.setItem("Score", score.innerHTML)
         }
         
       }
