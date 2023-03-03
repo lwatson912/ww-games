@@ -55,7 +55,12 @@ function wally() {
       console.log(score.innerHTML)
       let highScore = document.getElementById('highScore')
       highScore.innerHTML = "Your last score was " + score.innerHTML
-
+      localStorage.setItem("Score", score.innerHTML)
+      if (score > highScore){
+        highScore.innerHTML = "Your last score was " + score.innerHTML
+        localStorage.setItem("Score", score.innerHTML)
+      }
+      
     }
   })
 }
@@ -90,6 +95,12 @@ function odlaw() {
         console.log(score.innerHTML)
         let highScore = document.getElementById('highScore')
         highScore.innerHTML = "Your last score was " + score.innerHTML
+        localStorage.setItem("Score", score.innerHTML)
+        if (score > highScore){
+          highScore.innerHTML = "Your last score was " + score.innerHTML
+          localStorage.setItem("Score", score.innerHTML)
+        }
+        
       }
     })
 }
